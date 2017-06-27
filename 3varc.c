@@ -30,6 +30,8 @@ int main(int argc, char *argv[]) {
   int i = 0;
   int j = 0;
 
+  int ch = 0;
+
   char c;
 
   char in[256];
@@ -49,9 +51,7 @@ int main(int argc, char *argv[]) {
     fgets (in, 256, stdin );
     
     for(j = 0; j < strlen(in); j++ ){
-
         c = in[j];
-        
         switch (c) {
           case '.':
             c = in[++j];
@@ -81,7 +81,6 @@ int main(int argc, char *argv[]) {
                 printf("Reset all values? (y/n)\n>> ");
                 
                 if(getchar() == 'y'){
-                  printf("Reseting goddamn EVERYTHING.");
                   a = 0;
                   b = 0;
                   r = 0;
@@ -90,7 +89,11 @@ int main(int argc, char *argv[]) {
                   lev = 0;
                   loop = 0;
                   cond = 0;
+                  ch = 0;
+                  printf("\nAll variables reset.\n");
+                  getchar();
                 }
+                break;
                 
             }
             break;
@@ -113,6 +116,7 @@ int main(int argc, char *argv[]) {
 
           case 'P': // Prints the ASCII character associated with A
             printf("%c", (char)a);
+            ch = 1;
             break;
 
           case 'x': // Sets A to the absolute value of A
@@ -141,6 +145,7 @@ int main(int argc, char *argv[]) {
 
           case 'O': // Prints the ASCII character of B
             printf("%c", (char)b);
+            ch = 1;
             break;
 
           case '0': // Sets B to the absolute value of B
@@ -252,6 +257,7 @@ int main(int argc, char *argv[]) {
             }
             if (lev) {
               printf("Error: loops not nested properly.\n");
+              printf("Please make sure loops are written on one line.\n");
               lev = 0;
             }
             break;
@@ -329,6 +335,11 @@ int main(int argc, char *argv[]) {
             break;
 
         }
+      }
+      
+      if(ch){
+        printf("\n");  //If the output contains any characters, give them extra space
+        ch = 0;
       }
       
       if(debug){
