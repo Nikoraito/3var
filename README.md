@@ -1,4 +1,4 @@
-# 3var
+# 3varx
 A Collection of 3var applications and extensions
 
 https://esolangs.org/wiki/3var
