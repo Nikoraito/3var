@@ -1,2 +1,4 @@
 # 3var
-A collection of 3var applications.
+A 3var REPL
+
+https://esolangs.org/wiki/3var
